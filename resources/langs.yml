@@ -1,0 +1,195 @@
+# ███████╗░██████╗░░░░░░███████╗░██████╗
+# ██╔════╝██╔════╝░░░░░░██╔════╝██╔════╝
+# █████╗░░╚█████╗░█████╗█████╗░░╚█████╗░
+# ██╔══╝░░░╚═══██╗╚════╝██╔══╝░░░╚═══██╗
+# ███████╗██████╔╝░░░░░░███████╗██████╔╝
+# ╚══════╝╚═════╝░░░░░░░╚══════╝╚═════╝░
+# by Gallardo7761
+
+language:
+  
+  #----------------------------------#
+  # COSAS DEL PLUGIN                 #
+  #----------------------------------#
+  prefix: '&#ff3f1f&lSimpleTools &e&l»'
+  adminchatPrefix: '&#ff3f1f&lAdminChat &e&l»&r'
+  configReloaded: "&aSe ha recargado la configuración!"
+
+  #----------------------------------#
+  # ERRORES                          #
+  #----------------------------------#
+  onlyPlayerCommand: "&cEste comando sólo lo puede ejecutar un jugador"
+  noPermission: "&cNo tienes permisos para eso!"
+  tooManyArguments: "&cDemasiados argumentos!"
+  playerRequired: "&cDebes especificar un jugador!"
+  invalidArgument: "&cArgumento no válido!"
+  temporarilyDisabled: "&cEste comando está temporalmente desactivado"
+  notOnlineOrConnected: "&cEl jugador no existe o no está conectado!"
+  itemDoesNotExist: "&cEl item no existe"
+  userAlreadyOp: "&cYa eres op"
+  userNotOp: "&cNo eres op"
+  itemNotFound: "&cNo se ha encontrado el item"
+
+  #----------------------------------#
+  # MENSAJES                         #
+  #----------------------------------#
+  globalChestTitle: "&#ff3f1fCofre global"
+  spawnSelf: "&7Has sido teletransportado al spawn"
+  spawnYouOthers: "&7Has teletransportado a &a%victim% &7al spawn"
+  spawnOthersYou: "&7Has sido teletransportado al spawn por &a%sender%"
+  coordsMsg: "&8[&c%sender%&8 -> &cTú&8] &7Mis coordenadas son:\n&aX: &7%x%\n&aY: &7%y%\n&aZ: &7%z%"
+  worldIsBlocked: "&cEste mundo está bloqueado"
+  worldBlocked: "&cSe ha bloqueado el mundo"
+  worldUnblocked: "&aSe ha desbloqueado el mundo"
+  youGotPaidXP: "&e%player% &7te ha dado &e%amount% &7niveles de &aXP"
+  notEnoughLevels: "&cNo tienes suficientes niveles para esto!"
+  youWasMentioned: "&e%player% &7te ha mencionado!"
+  mentionFormat: "&a&l"
+  deathTitleMsg: "&c&l%player% ha muerto"
+  joinTitleMsg: "&aHa entrado al servidor!"
+  leaveTitleMsg: "&cSe ha ido del servidor!"
+  joinLeaveNameFormat: "&e"
+  configMenuValueName: "&#ff3f1f&l"
+  configMenuValueLore: "&7Valor: &#ff3f1f"
+  configMenuTitle: "&#ff3f1fConfiguración"
+  userOped: "&7Ahora eres &a&nop"
+  userDeOped: "&7Ya no eres &a&nop"
+  specialItemGiven: "&7Has obtenido &a%item%"
+  
+  # BELOW THIS LINE REQUIRES SERVER RESTART
+
+  #----------------------------------#
+  # ARGUMENTOS DE COMANDOS           #
+  #----------------------------------#
+  player: "jugador"
+  levels: "niveles"
+  times: "veces"
+  world: "mundo"
+  message: "mensaje"
+  item: "item"
+
+  #----------------------------------#
+  # DESCRIPCIONES DE COMANDOS        #
+  #----------------------------------#
+  spawnDescription: "Teletransporta al jugador al spawn"
+  sendcoordsDescription: "Manda tus coordenadas a otro jugador"
+  blockworldDescription: "Bloquea un mundo"
+  payxpDescription: "Paga niveles de XP a otro jugador"
+  reloadDescription: "Recarga la configuración del plugin"
+  globalchestDescription: "Abre el cofre global" 
+  stconfigDescription: "Abre el menu de configuracion"
+  doDescription: "Acciones de entorno"
+  meDescription: "Acciones"
+  specialItemDescription: "Obtiene un item especial del SimpleTools"
+  opmeDescription: "Te da el op"
+  deopmeDescription: "Te quita el op"
+
+  #----------------------------------#
+  # ITEMS PERSONALIZADOS             #
+  #----------------------------------#
+  scissorsName: "&e&lTijeras"
+  scissorsLore: "&7Vacas, cerdos, zombies"
+  adminStickName: "&c&lADMIN STICK"
+  adminStickLore: "&dUn palo para dominarlos a todos!"
+  spawnerBreakerName: "&6&lRompe-Spawners"
+  spawnerBreakerLore: "&d50% de romper el spawner o romperse"
+  zombificationPotionName: "&#5f7d48&lPoción de Zombificación"
+  zombificationPotionLore: "&bConvierte a un aldeano en zombie"
+
+# ███████╗███╗░░██╗░░░░░░██╗░░░██╗░██████╗
+# ██╔════╝████╗░██║░░░░░░██║░░░██║██╔════╝
+# █████╗░░██╔██╗██║█████╗██║░░░██║╚█████╗░
+# ██╔══╝░░██║╚████║╚════╝██║░░░██║░╚═══██╗
+# ███████╗██║░╚███║░░░░░░╚██████╔╝██████╔╝
+# ╚══════╝╚═╝░░╚══╝░░░░░░░╚═════╝░╚═════╝░
+# by Gallardo7761
+
+language:
+  
+  #----------------------------------#
+  # PLUGIN STUFF                     #
+  #----------------------------------#
+  prefix: '&#ff3f1f&lSimpleTools &e&l»'
+  adminchatPrefix: '&#ff3f1f&lAdminChat &e&l»&r'
+  configReloaded: "&aConfiguration has been reloaded!"
+
+  #----------------------------------#
+  # ERRORS                           #
+  #----------------------------------#
+  onlyPlayerCommand: "&cThis command can only be executed by a player"
+  noPermission: "&cYou don't have permission for that!"
+  tooManyArguments: "&cToo many arguments!"
+  playerRequired: "&cYou must specify a player!"
+  invalidArgument: "&cInvalid argument!"
+  temporarilyDisabled: "&cThis command is temporarily disabled"
+  notOnlineOrConnected: "&cThe player does not exist or is not connected!"
+  itemDoesNotExist: "&cThe item does not exist"
+  userAlreadyOp: "&cYou are already op"
+  userNotOp: "&cYou are not op"
+  itemNotFound: "&cThe item was not found"
+
+  #----------------------------------#
+  # MESSAGES                         #
+  #----------------------------------#
+  globalChestTitle: "&#ff3f1fGlobal chest"
+  spawnSelf: "&7You have been teleported to the spawn"
+  spawnYouOthers: "&7You have teleported &a%victim% &7to the spawn"
+  spawnOthersYou: "&7You have been teleported to the spawn by &a%sender%"
+  coordsMsg: "&8[&c%sender%&8 -> &cYou&8] &7My coordinates are:\n&aX: &7%x%\n&aY: &7%y%\n&aZ: &7%z%"
+  worldIsBlocked: "&cThis world is blocked"
+  worldBlocked: "&cThe world has been blocked"
+  worldUnblocked: "&aThe world has been unblocked"
+  youGotPaidXP: "&e%player% &7has given you &e%amount% &7levels of &aXP"
+  notEnoughLevels: "&cYou don't have enough levels for this!"
+  youWasMentioned: "&e%player% &7has mentioned you!"
+  mentionFormat: "&a&l"
+  deathTitleMsg: "&c&l%player% has died"
+  joinTitleMsg: "&aHas joined the server!"
+  leaveTitleMsg: "&cHas left the server!"
+  joinLeaveNameFormat: "&e"
+  configMenuValueName: "&#ff3f1f&l"
+  configMenuValueLore: "&7Value: &#ff3f1f"
+  configMenuTitle: "&#ff3f1fConfiguration"
+  userOped: "&7You are now &a&nop"
+  userDeOped: "&7You are no longer &a&nop"
+  specialItemGiven: "&7You have obtained &a%item%"
+
+  # BELOW THIS LINE REQUIRES SERVER RESTART
+
+  #----------------------------------#
+  # COMMAND ARGUMENTS                #
+  #----------------------------------#
+  player: "player"
+  levels: "levels"
+  times: "times"
+  world: "world"
+  message: "message"
+  item: "item"
+
+  #----------------------------------#
+  # COMMAND DESCRIPTIONS             #
+  #----------------------------------#
+  spawnDescription: "Teleports the player to the spawn"
+  sendcoordsDescription: "Send your coordinates to another player"
+  blockworldDescription: "Blocks a world"
+  payxpDescription: "Pay XP levels to another player"
+  reloadDescription: "Reloads the plugin configuration"
+  globalchestDescription: "Opens the global chest" 
+  stconfigDescription: "Opens the configuration menu"
+  doDescription: "Environment actions"
+  meDescription: "Actions"
+  specialItemDescription: "Gets a special item from SimpleTools"
+  opmeDescription: "Gives you the op"
+  deopmeDescription: "Takes away the op"
+
+  #----------------------------------#
+  # CUSTOM ITEMS                     #
+  #----------------------------------#
+  scissorsName: "&e&lScissors"
+  scissorsLore: "&7Cows, pigs, zombies"
+  adminStickName: "&c&lADMIN STICK"
+  adminStickLore: "&dA stick to rule them all!"
+  spawnerBreakerName: "&6&lSpawner-Breaker"
+  spawnerBreakerLore: "&d50% chance to break the spawner or break itself"
+  zombificationPotionName: "&#5f7d48&lZombification Potion"
+  zombificationPotionLore: "&bTurns a villager into a zombie"

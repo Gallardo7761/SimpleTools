@@ -1,0 +1,99 @@
+main: dev.gallardo.simpletools.SimpleTools
+name: SimpleTools
+version: 3.0.0-MMC
+description: Various commands and events
+api-version: '1.20'
+author: Gallardo7761
+website: gallardo.dev
+prefix: SimpleTools
+
+permissions:
+   simpletools.spawn:
+      description: Allows you to use the /spawn command
+      default: op
+   simpletools.spawn.others:
+      description: Allows you to use the /spawn <player> command
+      default: op
+   simpletools.globalchest:
+      description: Allows you to use the /globalchest command
+      default: op
+   simpletools.globalchest.others:
+      description: Allows you to use the /globalchest <player> command
+      default: op
+   simpletools.reload:
+      description: Allows you to use /streload command
+      default: op
+   simpletools.sendcoords:
+      description: Allows you to use /sendcoords <player> command
+      default: op
+   simpletools.adminchat:
+      description: Allows you to use the adminchat
+      default: op
+   simpletools.worldblocker:
+      description: Allows you to use /worldblock <world> <blocked> command
+      default: op
+   simpletools.payxp:
+      description: Allows you to use /payxp command
+      default: op
+   simpletools.mentions:
+      description: Allows you to use mentions
+      default: op
+   simpletools.chatformat:
+      description: Allows you to use format and colors in chat messages
+      default: op
+   simpletools.config:
+      description: Allows you to configure the plugin through the gui
+      default: op
+   simpletools.me:
+      description: Allows you to send actions
+      default: op
+   simpletools.do:
+      description: Allows you to send environment actions
+      default: op
+   simpletools.register:
+      description: Allows you to register in the gallery website
+      default: op
+   simpletools.specialItem:
+      description: Allows you to get some special item
+      default: op
+   simpletools.opme:
+      description: OPs you
+      default: op
+   simpletools.deopme:
+      description: DeOPs you
+      default: op
+   simpletools.player:
+      description: Player recommended permissions
+      default: true
+      children:
+         simpletools.spawn: true
+         simpletools.globalchest: true
+         simpletools.sendcoords: true
+         simpletools.payxp: true
+         simpletools.chatformat: true
+         simpletools.mentions: true
+         simpletools.me: true
+         simpletools.do: true
+         simpletools.register: true
+   simpletools.*:
+      description: This gives you all the perms
+      default: op
+      children:
+         simpletools.spawn: true
+         simpletools.spawn.others: true
+         simpletools.globalchest: true
+         simpletools.globalchest.others: true
+         simpletools.reload: true
+         simpletools.sendcoords: true
+         simpletools.worldblocker: true
+         simpletools.payxp: true
+         simpletools.adminchat: true
+         simpletools.mentions: true
+         simpletools.chatformat: true
+         simpletools.config: true
+         simpletools.me: true
+         simpletools.do: true
+         simpletools.register: true
+         simpletools.specialItem: true
+         simpletools.opme: true
+         simpletools.deopme: true
