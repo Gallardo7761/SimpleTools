@@ -20,7 +20,6 @@ public class UpdateChecker {
         this.resourceId = resourceId;
     }
 
-    @SuppressWarnings("deprecation")
 	public void getLatestVersion(Consumer<String> consumer) {
         Bukkit.getScheduler().runTaskAsynchronously((Plugin)this.plugin, () -> {
             try (InputStream inputStream = new URL("https://api.spigotmc.org/legacy/update.php?resource=" + this.resourceId).openStream();

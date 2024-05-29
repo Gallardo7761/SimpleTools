@@ -447,22 +447,26 @@ public class EventListener {
 			
 			@EventHandler
 			public void onPotionSplash(PotionSplashEvent event) {
-				Collection<LivingEntity> entities = event.getAffectedEntities();
-				for(LivingEntity le : entities) {
-					if(le instanceof Villager v) {
-						int r = (int) (Math.random() * 100.);
-						if(r >= 50) {
-							v.zombify();
-						} else {
-							v.setHealth(0.);
+				NBTItem nbtItem = new NBTItem(event.getPotion().getItem());
+				String specialItem = nbtItem.getString("specialItem");
+				if("ZOMBIFICATION_POTION".equals(specialItem)) {
+					Collection<LivingEntity> entities = event.getAffectedEntities();
+					for(LivingEntity le : entities) {
+						if(le instanceof Villager v) {
+							int r = (int) (Math.random() * 100.);
+							if(r >= 50) {
+								v.zombify();
+							} else {
+								v.setHealth(0.);
+							}
 						}
+						if(le instanceof Player p) {
+							p.addPotionEffect(
+								new PotionEffect(PotionEffectType.POISON, 30, 2)
+							);
+						}
+						
 					}
-					if(le instanceof Player p) {
-						p.addPotionEffect(
-							new PotionEffect(PotionEffectType.POISON, 30, 2)
-						);
-					}
-					
 				}
 			}
 			
