@@ -4,9 +4,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>dev.galliard</groupId>
+	<groupId>dev.gallardo</groupId>
 	<artifactId>simpletools</artifactId>
-	<version>3.0.0</version>
+	<version>3.1.0</version>
 
 	<build>
 		<plugins>
@@ -47,11 +47,11 @@
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 									<mainClass>
-										dev.galliard.simpletools.SimpleTools</mainClass>
+										dev.gallardo.simpletools.SimpleTools</mainClass>
 								</transformer>
 							</transformers>
 							<outputDirectory>
-								C:\Portables\mcss_win-x86-64_v13.5.0\servers\server\plugins</outputDirectory>
+								C:\Users\jomaa\Desktop</outputDirectory>
 							<relocations>
 								<relocation>
 									<pattern>dev.jorel.commandapi</pattern>
@@ -84,7 +84,7 @@
 						<configuration>
 							<target>
 								<delete
-									file="C:\Portables\mcss_win-x86-64_v13.5.0\servers\server\plugins\SimpleTools-${project.version}.jar" />
+									file="C:\Users\jomaa\Desktop\SimpleTools-${project.version}.jar" />
 							</target>
 						</configuration>
 						<goals>

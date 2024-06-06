@@ -18,6 +18,7 @@ config:
   chatFormat: true
   mentions: true
   emojis: true
+  bookColors: true
 
   #----------------------------------#
   # EMOJIS [DE MOMENTO NO FUNCIONA]  #

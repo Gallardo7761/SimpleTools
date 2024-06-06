@@ -1,6 +1,6 @@
 main: dev.gallardo.simpletools.SimpleTools
 name: SimpleTools
-version: 3.0.0-MMC
+version: 3.1.0
 description: Various commands and events
 api-version: '1.20'
 author: Gallardo7761

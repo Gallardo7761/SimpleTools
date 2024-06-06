@@ -1,5 +1,6 @@
 package dev.gallardo.simpletools.events;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -31,6 +32,7 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
+import org.bukkit.event.player.PlayerEditBookEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemBreakEvent;
@@ -467,6 +469,20 @@ public class EventListener {
 						}
 						
 					}
+				}
+			}
+			
+			@EventHandler
+			public void onBookWrite(PlayerEditBookEvent event) {
+				if(config.getBoolean("config.bookColors")) {
+					var bookMeta = event.getNewBookMeta();
+			        var pages = bookMeta.getPages();
+			        var newPages = new ArrayList<String>();
+			        for (String page : pages) {
+			            newPages.add(page.replace('&', '§'));
+			        }
+			        bookMeta.setPages(newPages);
+			        event.setNewBookMeta(bookMeta);
 				}
 			}
 			
