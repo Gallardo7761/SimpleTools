@@ -6,6 +6,10 @@ api-version: '1.20'
 author: Gallardo7761
 website: gallardo.dev
 prefix: SimpleTools
+depend:
+   - Minepacks
+   - CommandAPI
+   - NBTAPI
 
 permissions:
    simpletools.spawn:

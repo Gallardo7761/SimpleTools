@@ -24,7 +24,6 @@ import dev.gallardo.simpletools.recipes.RecipeManager;
 import dev.gallardo.simpletools.tasks.LocationTracker;
 import dev.gallardo.simpletools.utils.ConfigWrapper;
 import dev.gallardo.simpletools.utils.CustomConfigManager;
-import dev.gallardo.simpletools.utils.WebAPIAccessor;
 import dev.gallardo.simpletools.common.GlobalChest;
 import dev.gallardo.simpletools.utils.Utils;
 import dev.jorel.commandapi.CommandAPI;

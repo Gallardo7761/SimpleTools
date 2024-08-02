@@ -46,10 +46,6 @@ public class SimpleTools extends JavaPlugin implements Listener {
 	@Override
     public void onLoad() {
         CommandAPI.onLoad(new CommandAPIBukkitConfig(this).verboseOutput(true)); // Load with verbose output
-        if(!Bukkit.getServer().getName().toLowerCase().contains("miarma")) {
-			this.getLogger().log(Level.WARNING, Utils.colorCodeParser("Unregistering unsupported command. This is not MiarmaCraft."));
-			CommandAPI.unregister("registroweb");
-        }
     }
 	
     public void onDisable() {
