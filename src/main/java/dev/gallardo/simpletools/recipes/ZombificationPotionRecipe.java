@@ -24,7 +24,7 @@ public class ZombificationPotionRecipe {
         meta.setLore(Collections.singletonList(Utils.colorCodeParser(SimpleTools.plugin.getConfig().getString("language.zombificationPotionLore"))));
         meta.addEnchant(Enchantment.MENDING, 1, false);
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        meta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+        meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         
         potion.setItemMeta(meta);
         

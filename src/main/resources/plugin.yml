@@ -1,6 +1,6 @@
 main: dev.gallardo.simpletools.SimpleTools
 name: SimpleTools
-version: 3.1.0
+version: 3.1.0-MMC
 description: Various commands and events
 api-version: '1.20'
 author: Gallardo7761
@@ -14,6 +14,9 @@ permissions:
    simpletools.spawn.others:
       description: Allows you to use the /spawn <player> command
       default: op
+   simpletools.lobby:
+        description: Allows you to use the /lobby command
+        default: op
    simpletools.globalchest:
       description: Allows you to use the /globalchest command
       default: op
@@ -67,6 +70,7 @@ permissions:
       default: true
       children:
          simpletools.spawn: true
+         simpletools.lobby: true
          simpletools.globalchest: true
          simpletools.sendcoords: true
          simpletools.payxp: true
@@ -80,6 +84,7 @@ permissions:
       default: op
       children:
          simpletools.spawn: true
+         simpletools.lobby: true
          simpletools.spawn.others: true
          simpletools.globalchest: true
          simpletools.globalchest.others: true

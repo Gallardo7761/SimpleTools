@@ -6,7 +6,7 @@
 
 	<groupId>dev.gallardo</groupId>
 	<artifactId>simpletools</artifactId>
-	<version>3.1.0</version>
+	<version>3.1.0-MMC</version>
 
 	<build>
 		<plugins>
@@ -51,7 +51,7 @@
 								</transformer>
 							</transformers>
 							<outputDirectory>
-								C:\Users\jomaa\Desktop</outputDirectory>
+								C:\Users\jomaa\Desktop\test\plugins\</outputDirectory>
 							<relocations>
 								<relocation>
 									<pattern>dev.jorel.commandapi</pattern>
@@ -84,7 +84,7 @@
 						<configuration>
 							<target>
 								<delete
-									file="C:\Users\jomaa\Desktop\SimpleTools-${project.version}.jar" />
+									file="C:\Users\jomaa\Desktop\test\plugins\SimpleTools-${project.version}.jar" />
 							</target>
 						</configuration>
 						<goals>
@@ -115,7 +115,7 @@
 		<dependency>
 			<groupId>org.spigotmc</groupId>
 			<artifactId>spigot-api</artifactId>
-			<version>1.20.4-R0.1-SNAPSHOT</version>
+			<version>1.21-R0.1-SNAPSHOT</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -128,7 +128,7 @@
 		<dependency>
 			<groupId>dev.jorel</groupId>
 			<artifactId>commandapi-bukkit-shade</artifactId>
-			<version>9.3.0</version>
+			<version>9.5.1</version>
 		</dependency>
 
 		<dependency>

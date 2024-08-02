@@ -1,13 +1,13 @@
 config:
   #----------------------------------#
-  # VALORES                          #
+  # VALUES                           #
   #----------------------------------#
   rottenFleshCookTime: 60
   zombificationPotionTime: 180
   spawnerBreakerProbability: 30
 
   #----------------------------------#
-  # MÓDULOS                          #
+  # MODULES                          #
   #----------------------------------#
   joinTitle: true
   leaveTitle: true 
@@ -19,9 +19,22 @@ config:
   mentions: true
   emojis: true
   bookColors: true
+  spawnAtLobby: true
 
   #----------------------------------#
-  # EMOJIS [DE MOMENTO NO FUNCIONA]  #
+  # LOBBY SPAWNER                    #
+  #----------------------------------#
+  lobby:
+    name: "lobby"
+    coords:
+      x: 0.5
+      y: 65
+      z: 0.5
+      yaw: 180
+      pitch: 0
+
+  #----------------------------------#
+  # EMOJIS [COMING SOON...]          #
   #----------------------------------#
   emojiMap:
     ":skull:": "☠"
@@ -38,14 +51,14 @@ config:
 language:
   
   #----------------------------------#
-  # COSAS DEL PLUGIN                 #
+  # PLUGIN STUFF                     #
   #----------------------------------#
   prefix: '&#ff3f1f&lSimpleTools &e&l»'
   adminchatPrefix: '&#ff3f1f&lAdminChat &e&l»&r'
   configReloaded: "&aSe ha recargado la configuración!"
 
   #----------------------------------#
-  # ERRORES                          #
+  # ERROR S                          #
   #----------------------------------#
   onlyPlayerCommand: "&cEste comando sólo lo puede ejecutar un jugador"
   noPermission: "&cNo tienes permisos para eso!"
@@ -58,9 +71,10 @@ language:
   userAlreadyOp: "&cYa eres op"
   userNotOp: "&cNo eres op"
   itemNotFound: "&cNo se ha encontrado el item"
+  lobbyDoesNotExist: "&cERROR: El lobby definido en el config no existe!"
 
   #----------------------------------#
-  # MENSAJES                         #
+  # MESSAGES                         #
   #----------------------------------#
   globalChestTitle: "&#ff3f1fCofre global"
   spawnSelf: "&7Has sido teletransportado al spawn"
@@ -84,11 +98,12 @@ language:
   userOped: "&7Ahora eres &a&nop"
   userDeOped: "&7Ya no eres &a&nop"
   specialItemGiven: "&7Has obtenido &a%item%"
+  disposalTitle: "&#ff3f1fDisposal"
   
   # BELOW THIS LINE REQUIRES SERVER RESTART
 
   #----------------------------------#
-  # ARGUMENTOS DE COMANDOS           #
+  # COMMAND ARGUMENTS                #
   #----------------------------------#
   player: "jugador"
   levels: "niveles"
@@ -96,9 +111,10 @@ language:
   world: "mundo"
   message: "mensaje"
   item: "item"
+  password: "contraseña"
 
   #----------------------------------#
-  # DESCRIPCIONES DE COMANDOS        #
+  # COMMAND DESCRIPTIONS             #
   #----------------------------------#
   spawnDescription: "Teletransporta al jugador al spawn"
   sendcoordsDescription: "Manda tus coordenadas a otro jugador"
@@ -109,12 +125,14 @@ language:
   stconfigDescription: "Abre el menu de configuracion"
   doDescription: "Acciones de entorno"
   meDescription: "Acciones"
+  galleryDescription: "Regístrate en la galería"
   specialItemDescription: "Obtiene un item especial del SimpleTools"
   opmeDescription: "Te da el op"
   deopmeDescription: "Te quita el op"
+  disposalDescription: "Abre el disposal"
 
   #----------------------------------#
-  # ITEMS PERSONALIZADOS             #
+  # CUSTOM ITEMS STUFF               #
   #----------------------------------#
   scissorsName: "&e&lTijeras"
   scissorsLore: "&7Vacas, cerdos, zombies"

@@ -1,3 +1,8 @@
+
+# IF YOU WANT TO SHARE YOUR TRANSLATION TO A LANGUAGE NOT YET ADDED, YOU CAN DO IT BY SUBMITTING IT HERE
+# https://github.com/Gallardo7761/SimpleTools-Prod/issues
+# USING THE 'enhancement' LABEL
+
 # ███████╗░██████╗░░░░░░███████╗░██████╗
 # ██╔════╝██╔════╝░░░░░░██╔════╝██╔════╝
 # █████╗░░╚█████╗░█████╗█████╗░░╚█████╗░
@@ -9,14 +14,14 @@
 language:
   
   #----------------------------------#
-  # COSAS DEL PLUGIN                 #
+  # PLUGIN STUFF                     #
   #----------------------------------#
   prefix: '&#ff3f1f&lSimpleTools &e&l»'
   adminchatPrefix: '&#ff3f1f&lAdminChat &e&l»&r'
   configReloaded: "&aSe ha recargado la configuración!"
 
   #----------------------------------#
-  # ERRORES                          #
+  # ERROR S                          #
   #----------------------------------#
   onlyPlayerCommand: "&cEste comando sólo lo puede ejecutar un jugador"
   noPermission: "&cNo tienes permisos para eso!"
@@ -29,9 +34,10 @@ language:
   userAlreadyOp: "&cYa eres op"
   userNotOp: "&cNo eres op"
   itemNotFound: "&cNo se ha encontrado el item"
+  lobbyDoesNotExist: "&cERROR: El lobby definido en el config no existe!"
 
   #----------------------------------#
-  # MENSAJES                         #
+  # MESSAGES                         #
   #----------------------------------#
   globalChestTitle: "&#ff3f1fCofre global"
   spawnSelf: "&7Has sido teletransportado al spawn"
@@ -55,11 +61,12 @@ language:
   userOped: "&7Ahora eres &a&nop"
   userDeOped: "&7Ya no eres &a&nop"
   specialItemGiven: "&7Has obtenido &a%item%"
-  
+  disposalTitle: "&#ff3f1fDisposal"
+
   # BELOW THIS LINE REQUIRES SERVER RESTART
 
   #----------------------------------#
-  # ARGUMENTOS DE COMANDOS           #
+  # COMMAND ARGUMENTS                #
   #----------------------------------#
   player: "jugador"
   levels: "niveles"
@@ -67,25 +74,28 @@ language:
   world: "mundo"
   message: "mensaje"
   item: "item"
+  password: "contraseña"
 
   #----------------------------------#
-  # DESCRIPCIONES DE COMANDOS        #
+  # COMMAND DESCRIPTIONS             #
   #----------------------------------#
   spawnDescription: "Teletransporta al jugador al spawn"
   sendcoordsDescription: "Manda tus coordenadas a otro jugador"
   blockworldDescription: "Bloquea un mundo"
   payxpDescription: "Paga niveles de XP a otro jugador"
   reloadDescription: "Recarga la configuración del plugin"
-  globalchestDescription: "Abre el cofre global" 
+  globalchestDescription: "Abre el cofre global"
   stconfigDescription: "Abre el menu de configuracion"
   doDescription: "Acciones de entorno"
   meDescription: "Acciones"
+  galleryDescription: "Regístrate en la galería"
   specialItemDescription: "Obtiene un item especial del SimpleTools"
   opmeDescription: "Te da el op"
   deopmeDescription: "Te quita el op"
+  disposalDescription: "Abre el disposal"
 
   #----------------------------------#
-  # ITEMS PERSONALIZADOS             #
+  # CUSTOM ITEMS STUFF               #
   #----------------------------------#
   scissorsName: "&e&lTijeras"
   scissorsLore: "&7Vacas, cerdos, zombies"
@@ -111,48 +121,50 @@ language:
   #----------------------------------#
   prefix: '&#ff3f1f&lSimpleTools &e&l»'
   adminchatPrefix: '&#ff3f1f&lAdminChat &e&l»&r'
-  configReloaded: "&aConfiguration has been reloaded!"
+  configReloaded: "&aConfig reloaded!"
 
   #----------------------------------#
-  # ERRORS                           #
+  # ERROR S                          #
   #----------------------------------#
   onlyPlayerCommand: "&cThis command can only be executed by a player"
-  noPermission: "&cYou don't have permission for that!"
+  noPermission: "&cYou don't have permissions to do that!"
   tooManyArguments: "&cToo many arguments!"
   playerRequired: "&cYou must specify a player!"
   invalidArgument: "&cInvalid argument!"
-  temporarilyDisabled: "&cThis command is temporarily disabled"
-  notOnlineOrConnected: "&cThe player does not exist or is not connected!"
-  itemDoesNotExist: "&cThe item does not exist"
-  userAlreadyOp: "&cYou are already op"
-  userNotOp: "&cYou are not op"
-  itemNotFound: "&cThe item was not found"
+  temporarilyDisabled: "&cThis command is temporarily disabled!"
+  notOnlineOrConnected: "&cThe player is either offline or non-existent!"
+  itemDoesNotExist: "&cThat item does not exist"
+  userAlreadyOp: "&cYou are already OP"
+  userNotOp: "&cYou are not OP"
+  itemNotFound: "&cItem not found"
+  lobbyDoesNotExist: "&cERROR: The lobby defined in the config does not exist!"
 
   #----------------------------------#
   # MESSAGES                         #
   #----------------------------------#
-  globalChestTitle: "&#ff3f1fGlobal chest"
+  globalChestTitle: "&#ff3f1fGlobal Chest"
   spawnSelf: "&7You have been teleported to the spawn"
   spawnYouOthers: "&7You have teleported &a%victim% &7to the spawn"
   spawnOthersYou: "&7You have been teleported to the spawn by &a%sender%"
-  coordsMsg: "&8[&c%sender%&8 -> &cYou&8] &7My coordinates are:\n&aX: &7%x%\n&aY: &7%y%\n&aZ: &7%z%"
+  coordsMsg: "&8[&c%sender%&8 -> &cTú&8] &7My coordinates are:\n&aX: &7%x%\n&aY: &7%y%\n&aZ: &7%z%"
   worldIsBlocked: "&cThis world is blocked"
   worldBlocked: "&cThe world has been blocked"
   worldUnblocked: "&aThe world has been unblocked"
-  youGotPaidXP: "&e%player% &7has given you &e%amount% &7levels of &aXP"
-  notEnoughLevels: "&cYou don't have enough levels for this!"
-  youWasMentioned: "&e%player% &7has mentioned you!"
+  youGotPaidXP: "&e%player% &7gave you &e%amount% &aXP &7levels"
+  notEnoughLevels: "&cYou don't have enough XP levels for that!"
+  youWasMentioned: "&e%player% &7mentioned you!"
   mentionFormat: "&a&l"
   deathTitleMsg: "&c&l%player% has died"
-  joinTitleMsg: "&aHas joined the server!"
-  leaveTitleMsg: "&cHas left the server!"
+  joinTitleMsg: "&aJoined the server!"
+  leaveTitleMsg: "&cLeft the server!"
   joinLeaveNameFormat: "&e"
   configMenuValueName: "&#ff3f1f&l"
   configMenuValueLore: "&7Value: &#ff3f1f"
   configMenuTitle: "&#ff3f1fConfiguration"
-  userOped: "&7You are now &a&nop"
-  userDeOped: "&7You are no longer &a&nop"
-  specialItemGiven: "&7You have obtained &a%item%"
+  userOped: "&7You are  &a&nOP &7now"
+  userDeOped: "&7You are no longer &a&nOP"
+  specialItemGiven: "&7You got &a%item%"
+  disposalTitle: "&#ff3f1fDisposal"
 
   # BELOW THIS LINE REQUIRES SERVER RESTART
 
@@ -169,27 +181,28 @@ language:
   #----------------------------------#
   # COMMAND DESCRIPTIONS             #
   #----------------------------------#
-  spawnDescription: "Teleports the player to the spawn"
-  sendcoordsDescription: "Send your coordinates to another player"
+  spawnDescription: "Teleports a player to the spawn"
+  sendcoordsDescription: "Makes you send your coordinates to another player"
   blockworldDescription: "Blocks a world"
-  payxpDescription: "Pay XP levels to another player"
-  reloadDescription: "Reloads the plugin configuration"
-  globalchestDescription: "Opens the global chest" 
+  payxpDescription: "Makes you pay XP levels to another player"
+  reloadDescription: "Reloads the plugin config"
+  globalchestDescription: "Opens the Global Chest"
   stconfigDescription: "Opens the configuration menu"
-  doDescription: "Environment actions"
-  meDescription: "Actions"
-  specialItemDescription: "Gets a special item from SimpleTools"
-  opmeDescription: "Gives you the op"
-  deopmeDescription: "Takes away the op"
+  doDescription: "Environment actions (roleplay)"
+  meDescription: "Character actions (roleplay)"
+  specialItemDescription: "Gets you a special item added by SimpleTools"
+  opmeDescription: "Grants you OP privileges"
+  deopmeDescription: "Takes OP privileges from you"
+  disposalDescription: "Opens disposal"
 
   #----------------------------------#
-  # CUSTOM ITEMS                     #
+  # CUSTOM ITEMS STUFF               #
   #----------------------------------#
   scissorsName: "&e&lScissors"
   scissorsLore: "&7Cows, pigs, zombies"
   adminStickName: "&c&lADMIN STICK"
   adminStickLore: "&dA stick to rule them all!"
   spawnerBreakerName: "&6&lSpawner-Breaker"
-  spawnerBreakerLore: "&d50% chance to break the spawner or break itself"
+  spawnerBreakerLore: "&d50% of probability to break a spawner or break itself"
   zombificationPotionName: "&#5f7d48&lZombification Potion"
-  zombificationPotionLore: "&bTurns a villager into a zombie"
+  zombificationPotionLore: "&bTurns a Villager into a Zombie Villager (Shame on you!)"

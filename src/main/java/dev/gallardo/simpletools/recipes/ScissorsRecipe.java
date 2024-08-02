@@ -22,7 +22,7 @@ public class ScissorsRecipe {
         ItemMeta meta = scissors.getItemMeta();
         meta.setDisplayName(Utils.colorCodeParser(SimpleTools.plugin.getConfig().getString("language.scissorsName")));
         meta.setLore(Collections.singletonList(Utils.colorCodeParser(SimpleTools.plugin.getConfig().getString("language.scissorsLore"))));
-        meta.addEnchant(Enchantment.DURABILITY, 1, false);
+        meta.addEnchant(Enchantment.UNBREAKING, 1, false);
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
                 
         scissors.setItemMeta(meta);

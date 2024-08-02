@@ -6,11 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
-import org.bukkit.Sound;
+import dev.gallardo.simpletools.common.DisposalInventory;
+import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.Recipe;
@@ -27,7 +24,8 @@ import dev.gallardo.simpletools.recipes.RecipeManager;
 import dev.gallardo.simpletools.tasks.LocationTracker;
 import dev.gallardo.simpletools.utils.ConfigWrapper;
 import dev.gallardo.simpletools.utils.CustomConfigManager;
-import dev.gallardo.simpletools.utils.GlobalChest;
+import dev.gallardo.simpletools.utils.WebAPIAccessor;
+import dev.gallardo.simpletools.common.GlobalChest;
 import dev.gallardo.simpletools.utils.Utils;
 import dev.jorel.commandapi.CommandAPI;
 import dev.jorel.commandapi.CommandAPICommand;
@@ -186,7 +184,7 @@ public class CommandManager {
 				} else if (args.count() >= 1) {
 					if (player.hasPermission("simpletools.spawn.others")) {
 						Player victim = Bukkit.getServer().getPlayer(args.getRaw(0));
-						Location spawnCoords = new Location(victim.getWorld(), xSpawn, ySpawn, zSpawn);
+						Location spawnCoords = new Location(victim.getWorld(), xSpawn, ySpawn, zSpawn, victim.getLocation().getYaw(), victim.getLocation().getPitch());
 						victim.teleport(spawnCoords);
 						sender.sendMessage(PREFIX + " " + 
 								Utils.placeholderParser(
@@ -210,6 +208,23 @@ public class CommandManager {
 			}		
 		})
 		.register();
+
+		// LOBBY COMMAND
+		new CommandAPICommand("lobby")
+				.withFullDescription(config.getString("language.lobbyDescription"))
+				.withShortDescription(config.getString("language.lobbyDescription"))
+				.withPermission("simpletools.lobby")
+				.executes((sender,args) -> {
+					if(Bukkit.getServer().getWorlds().stream()
+							.map(World::getName)
+							.map(String::toLowerCase)
+							.anyMatch(w -> w.contains(config.getString("config.lobby.name")))) {
+						((Player)sender).teleport(Bukkit.getServer().getWorld(config.getString("config.lobby.name")).getSpawnLocation());
+					} else {
+						sender.sendMessage(config.getString("language.lobbyDoesNotExist"));
+					}
+				})
+				.register();
 		
 		//RELOAD COMMAND
 		new CommandAPICommand("streload")
@@ -469,5 +484,16 @@ public class CommandManager {
 			}
 		})
 		.register();
+
+		// DISPOSAL
+		new CommandAPICommand("disposal")
+		.withFullDescription(config.getString("language.disposalDescription"))
+		.withPermission("simpletools.disposal")
+		.withShortDescription(config.getString("language.disposalDescription"))
+		.executesPlayer((sender,args) -> {
+			sender.openInventory(DisposalInventory.getInv());
+		})
+		.register();
+		
 	}
 }

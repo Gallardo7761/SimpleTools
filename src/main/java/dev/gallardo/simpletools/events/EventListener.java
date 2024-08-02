@@ -1,13 +1,12 @@
 package dev.gallardo.simpletools.events;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
 import java.util.Collection;
 import java.util.List;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.Sound;
+import dev.gallardo.simpletools.common.DisposalInventory;
+import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
 import org.bukkit.block.CreatureSpawner;
@@ -52,8 +51,8 @@ import dev.gallardo.simpletools.commands.CommandManager;
 import dev.gallardo.simpletools.tasks.LocationTracker;
 import dev.gallardo.simpletools.utils.ConfigWrapper;
 import dev.gallardo.simpletools.utils.CustomConfigManager;
-import dev.gallardo.simpletools.utils.GlobalChest;
-import dev.gallardo.simpletools.utils.MinepacksAccessor;
+import dev.gallardo.simpletools.common.GlobalChest;
+import dev.gallardo.simpletools.common.MinepacksAccessor;
 import dev.gallardo.simpletools.utils.Utils;
 import net.md_5.bungee.api.ChatColor;
 
@@ -72,12 +71,13 @@ public class EventListener {
 			public void onInventoryClose(InventoryCloseEvent event) {
 				if (event.getInventory().equals(GlobalChest.getInv())) {
 					GlobalChest.saveChest();
-				}
+				} else if(event.getInventory().equals(DisposalInventory.getInv())) {
+					DisposalInventory.getInv().clear();				}
 			}
 
 			@EventHandler
 			public void onPlayerDeath(PlayerDeathEvent event) {
-				if (config.getBoolean("config.deathTitle") == true) {
+				if (config.getBoolean("config.deathTitle")) {
 					Player player = event.getEntity();
 					Collection<? extends Player> players = Bukkit.getServer().getOnlinePlayers();
 					for (Player p : players) {
@@ -92,8 +92,29 @@ public class EventListener {
 
 			@EventHandler
 			public void onPlayerJoin(PlayerJoinEvent event) {
-				if (config.getBoolean("config.joinTitle") == true) {
-					Player player = event.getPlayer();
+				Player player = event.getPlayer();
+				if(config.getBoolean("config.spawnAtLobby")) {
+					if(Bukkit.getServer().getWorlds().stream()
+							.map(World::getName)
+							.map(String::toLowerCase)
+							.anyMatch(w -> w.contains(config.getString("config.lobby.name")))) {
+						player.teleport(
+								new Location(
+										Bukkit.getWorld(config.getString("config.lobby.name")),
+										config.getConfig().getDouble("config.lobby.coords.x"),
+										config.getConfig().getDouble("config.lobby.coords.y"),
+										config.getConfig().getDouble("config.lobby.coords.z"),
+										config.getConfig().getFloat("config.lobby.coords.yaw"),
+										config.getConfig().getFloat("config.lobby.coords.pitch")
+								)
+						);
+					} else {
+						SimpleTools.getPlugin(SimpleTools.class).getLogger()
+								.log(Level.SEVERE, config.getString("language.lobbyDoesNotExist"));
+					}
+				}
+				if (config.getBoolean("config.joinTitle")) {
+
 					Collection<? extends Player> players = Bukkit.getServer().getOnlinePlayers();
 					for (Player p : players) {
 						p.sendTitle(
@@ -198,9 +219,8 @@ public class EventListener {
 			@SuppressWarnings("deprecation")
 			@EventHandler
 			public void onEntityLeftClick(EntityDamageByEntityEvent event) {
-				if (event.getDamager() instanceof Player) {
-					Player player = (Player) event.getDamager();
-					ItemStack itemStack = player.getItemInHand();
+				if (event.getDamager() instanceof Player player) {
+                    ItemStack itemStack = player.getItemInHand();
 					Material material = itemStack.getType();
 					if (material.equals(Material.STICK) && 
 							new NBTItem(itemStack).getString("specialItem").equals("ADMIN_STICK") &&
@@ -240,7 +260,7 @@ public class EventListener {
 			
 			@EventHandler
 			public void onChatMessage(AsyncPlayerChatEvent event) {
-				if(config.getBoolean("config.chatFormat") == true) {
+				if(config.getBoolean("config.chatFormat")) {
 					if(event.getPlayer().hasPermission("simpletools.chatformat")) {
 						event.setMessage(Utils.colorCodeParser(event.getMessage()));
 					}
@@ -249,7 +269,7 @@ public class EventListener {
 						
 			@EventHandler
 			public void onAdminMessage(AsyncPlayerChatEvent event) {
-				if(config.getBoolean("config.adminChat") == true) {
+				if(config.getBoolean("config.adminChat")) {
 					if(event.getMessage().startsWith("#") && event.getPlayer().hasPermission("simpletools.adminchat")) {
 						String msg = event.getMessage().replace("#",
 								Utils.colorCodeParser(config.getString("language.adminchatPrefix"))+" "+
@@ -271,13 +291,13 @@ public class EventListener {
 			
 			@EventHandler
 			public void onMention(AsyncPlayerChatEvent event) {
-				if(config.getBoolean("config.mentions") == true) {
+				if(config.getBoolean("config.mentions")) {
 					List<String> players = Bukkit.getServer().getOnlinePlayers().stream().map(Player::getName).toList();
 					boolean containsPlayer = false;
 					if(event.getPlayer().hasPermission("simpletools.mentions")) {
 						Player victim = null;
 						for(String s:players) {
-							if(event.getMessage().contains(s)) {
+							if(event.getMessage().contains("@"+s)) {
 								victim = Bukkit.getServer().getPlayer(s);
 								containsPlayer = true;
 							}
@@ -290,8 +310,6 @@ public class EventListener {
 			                    		List.of("%player%"),
 			                    		List.of(event.getPlayer().getName())));
 							victim.playSound(victim, Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
-						} else {
-							
 						}
 					}
 				}
@@ -311,14 +329,17 @@ public class EventListener {
 
 		                if (itemCountInInventory > 1) {
 		                    Utils.refillItem(event.getPlayer(), material, event.getHand());
-		                } else if (!playerBackpack.isEmpty()) {
-		                    for (ItemStack i : playerBackpack.getContents()) {
-		                        if (i != null && i.getType().equals(material)) {
-		                            Utils.refillItemFromMinepack(event.getPlayer(), material, event.getHand());
-		                            break;
-		                        }
-		                    }
-		                }
+		                } else {
+                            assert playerBackpack != null;
+                            if (!playerBackpack.isEmpty()) {
+                                for (ItemStack i : playerBackpack.getContents()) {
+                                    if (i != null && i.getType().equals(material)) {
+                                        Utils.refillItemFromMinepack(event.getPlayer(), material, event.getHand());
+                                        break;
+                                    }
+                                }
+                            }
+                        }
 		            }
 		        }
 		    }
@@ -421,7 +442,7 @@ public class EventListener {
 				
 				Enchantment ench = i.getEnchantments().entrySet().stream()
 			            .map(entry -> entry.getKey())
-			            .filter(e -> e == Enchantment.LOOT_BONUS_MOBS)
+			            .filter(e -> e == Enchantment.LOOTING)
 			            .findFirst()
 			            .orElse(null);
 				if(ench == null) {
