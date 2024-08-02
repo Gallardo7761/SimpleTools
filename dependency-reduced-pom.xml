@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>dev.galliard</groupId>
+  <groupId>dev.gallardo</groupId>
   <artifactId>simpletools</artifactId>
-  <version>3.0.0</version>
+  <version>3.1.0-MMC</version>
   <build>
     <sourceDirectory>src/main/java</sourceDirectory>
     <resources>
@@ -44,10 +44,10 @@
               </artifactSet>
               <transformers>
                 <transformer>
-                  <mainClass>dev.galliard.simpletools.SimpleTools</mainClass>
+                  <mainClass>dev.gallardo.simpletools.SimpleTools</mainClass>
                 </transformer>
               </transformers>
-              <outputDirectory>C:\Portables\mcss_win-x86-64_v13.5.0\servers\server\plugins</outputDirectory>
+              <outputDirectory>C:\Users\jomaa\Desktop\test\plugins\</outputDirectory>
               <relocations>
                 <relocation>
                   <pattern>dev.jorel.commandapi</pattern>
@@ -107,7 +107,7 @@
     <dependency>
       <groupId>org.spigotmc</groupId>
       <artifactId>spigot-api</artifactId>
-      <version>1.20.4-R0.1-SNAPSHOT</version>
+      <version>1.21-R0.1-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
     <dependency>

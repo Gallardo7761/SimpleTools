@@ -6,7 +6,7 @@
 
 	<groupId>dev.gallardo</groupId>
 	<artifactId>simpletools</artifactId>
-	<version>3.1.0-MMC</version>
+	<version>3.0.0</version>
 
 	<build>
 		<plugins>
