@@ -338,7 +338,7 @@ public class CommandManager {
 		.withShortDescription(config.getString("language.stconfigDescription"))
 		.executesPlayer((sender, args) -> {
 
-			/*Section confSec = config.getConfig().getSection("config");
+			Section confSec = config.getConfig().getSection("config");
 
 			Map<String,Object> values = confSec.getStringRouteMappedValues(false);
 
@@ -382,11 +382,9 @@ public class CommandManager {
 				Utils.reloadConfigItem(event);
 			})).toList();
 
-			guiItems.stream().forEach(x->pane.addItem(x));
+			guiItems.forEach(pane::addItem);
 			gui.addPane(pane);
-			gui.show(sender);*/
-
-			sender.sendMessage(Utils.colorCodeParser("§cThis command is currently disabled."));
+			gui.show(sender);
 
 		})
 		.register();

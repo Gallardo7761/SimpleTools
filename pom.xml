@@ -140,7 +140,7 @@
 		<dependency>
 			<groupId>com.github.stefvanschie.inventoryframework</groupId>
 			<artifactId>IF</artifactId>
-			<version>0.10.16</version>
+			<version>0.10.17</version>
 		</dependency>
 
 		<dependency>
