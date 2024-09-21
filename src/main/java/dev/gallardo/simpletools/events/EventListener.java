@@ -321,7 +321,7 @@ public class EventListener {
 		            ItemStack item = event.getItemInHand();
 		            Material material = event.getBlockPlaced().getType();
 		            Inventory playerInventory = event.getPlayer().getInventory();
-		            Inventory playerBackpack = MinepacksAccessor.getPlayerBackpackInventory(event.getPlayer());
+		            Inventory playerBackpack;
 
 		            if (item.getAmount() == 1) {
 		                // Verifica si hay más en el inventario del jugador
@@ -330,15 +330,18 @@ public class EventListener {
 		                if (itemCountInInventory > 1) {
 		                    Utils.refillItem(event.getPlayer(), material, event.getHand());
 		                } else {
-                            assert playerBackpack != null;
-                            if (!playerBackpack.isEmpty()) {
-                                for (ItemStack i : playerBackpack.getContents()) {
-                                    if (i != null && i.getType().equals(material)) {
-                                        Utils.refillItemFromMinepack(event.getPlayer(), material, event.getHand());
-                                        break;
-                                    }
-                                }
-                            }
+							if(MinepacksAccessor.isLoaded()) {
+								playerBackpack = MinepacksAccessor.getPlayerBackpackInventory(event.getPlayer());
+								if (!(playerBackpack == null) && !playerBackpack.isEmpty()) {
+									for (ItemStack i : playerBackpack.getContents()) {
+										if (i != null && i.getType().equals(material)) {
+											Utils.refillItemFromMinepack(event.getPlayer(), material, event.getHand());
+											break;
+										}
+									}
+								}
+							}
+
                         }
 		            }
 		        }
@@ -398,7 +401,7 @@ public class EventListener {
 					ItemStack item = event.getBrokenItem();
 					Material material = item.getType();
 					PlayerInventory playerInventory = event.getPlayer().getInventory();
-		            Inventory playerBackpack = MinepacksAccessor.getPlayerBackpackInventory(event.getPlayer());
+		            Inventory playerBackpack;
 		            EquipmentSlot hand = (playerInventory.getItemInMainHand().getType().equals(Material.AIR) || 
 		                      !playerInventory.getItemInMainHand().getType().equals(item.getType())) ? 
 		                      EquipmentSlot.OFF_HAND : EquipmentSlot.HAND;
@@ -407,13 +410,18 @@ public class EventListener {
 		            	int itemCountInInventory = Utils.getItemCount(playerInventory, material);
 		            	if (itemCountInInventory > 1) {
 		                    Utils.refillItem(event.getPlayer(), material, hand);
-		                } else if (!playerBackpack.isEmpty()) {
-		                    for (ItemStack i : playerBackpack.getContents()) {
-		                        if (i != null && i.getType().equals(material)) {
-		                            Utils.refillItemFromMinepack(event.getPlayer(), material, hand);
-		                            break;
-		                        }
-		                    }
+		                } else {
+							if(MinepacksAccessor.isLoaded()) {
+								playerBackpack = MinepacksAccessor.getPlayerBackpackInventory(event.getPlayer());
+								if(!(playerBackpack == null) && !playerBackpack.isEmpty()) {
+									for (ItemStack i : playerBackpack.getContents()) {
+										if (i != null && i.getType().equals(material)) {
+											Utils.refillItemFromMinepack(event.getPlayer(), material, hand);
+											break;
+										}
+									}
+								}
+							}
 		                }
 		            }
 					

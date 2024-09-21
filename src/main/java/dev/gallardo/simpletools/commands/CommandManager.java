@@ -337,37 +337,37 @@ public class CommandManager {
 		.withFullDescription(config.getString("language.stconfigDescription"))
 		.withShortDescription(config.getString("language.stconfigDescription"))
 		.executesPlayer((sender, args) -> {
-			
-			Section confSec = config.getConfig().getSection("config");
-			
+
+			/*Section confSec = config.getConfig().getSection("config");
+
 			Map<String,Object> values = confSec.getStringRouteMappedValues(false);
-			
+
 			int booleans = (int) values.entrySet().stream()
 					.map(x->x.getValue())
 					.map(x->x.toString())
 					.filter(x->x.equals("true") || x.equals("false"))
 					.count();
-			
+
 			int numberOfRows = (booleans / 9) + (booleans % 9 > 0 ? 1 : 0);
-			
+
 			ChestGui gui = new ChestGui(booleans >= 9 ? numberOfRows : 1,
 					Utils.colorCodeParser(config.getString("language.configMenuTitle")));
-			
+
 			OutlinePane pane = new OutlinePane(0, 0, booleans, numberOfRows);
-			
+
 			List<String> configItemsDisplayNames = values.entrySet().stream()
 					.filter(x->x.getValue().toString().equals("true") ||
 							x.getValue().toString().equals("false"))
 					.map(x->Utils.colorCodeParser(config.getString("language.configMenuValueName"))
 							+x.getKey()).toList();
-			
+
 			List<String> configItemsLores = values.entrySet().stream()
 					.filter(x->x.getValue().toString().equals("true") ||
 							x.getValue().toString().equals("false"))
 					.map(x->Utils.colorCodeParser(config.getString("language.configMenuValueLore")) + x.getValue().toString()).toList();
-			
+
 			List<ItemStack> configItems = new ArrayList<>();
-			
+
 			for(int x = 0; x < booleans; x++) {
 				ItemStack item = new ItemStack(Material.PAPER,1);
 				ItemMeta itemMeta = item.getItemMeta();
@@ -376,7 +376,7 @@ public class CommandManager {
 				item.setItemMeta(itemMeta);
 				configItems.add(item);
 			}
-			
+
 			List<GuiItem> guiItems = configItems.stream().map(x->new GuiItem(x,event -> {
 				event.setCancelled(true);
 				Utils.reloadConfigItem(event);
@@ -384,8 +384,10 @@ public class CommandManager {
 
 			guiItems.stream().forEach(x->pane.addItem(x));
 			gui.addPane(pane);
-			gui.show(sender);
-			
+			gui.show(sender);*/
+
+			sender.sendMessage(Utils.colorCodeParser("§cThis command is currently disabled."));
+
 		})
 		.register();
 		

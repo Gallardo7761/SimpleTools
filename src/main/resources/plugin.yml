@@ -56,9 +56,6 @@ permissions:
    simpletools.do:
       description: Allows you to send environment actions
       default: op
-   simpletools.register:
-      description: Allows you to register in the gallery website
-      default: op
    simpletools.specialItem:
       description: Allows you to get some special item
       default: op
@@ -81,7 +78,6 @@ permissions:
          simpletools.mentions: true
          simpletools.me: true
          simpletools.do: true
-         simpletools.register: true
    simpletools.*:
       description: This gives you all the perms
       default: op
@@ -101,7 +97,6 @@ permissions:
          simpletools.config: true
          simpletools.me: true
          simpletools.do: true
-         simpletools.register: true
          simpletools.specialItem: true
          simpletools.opme: true
          simpletools.deopme: true
